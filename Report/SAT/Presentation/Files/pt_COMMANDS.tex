@@ -1,0 +1,42 @@
+\documentclass{beamer}
+
+% graphics
+\usepackage[utf8]{inputenc}
+\usepackage{xcolor}
+\usepackage{tikz}
+\usetikzlibrary{positioning,calc}
+\usepackage{graphicx}
+\usepackage{hyperref}
+\usepackage{amsmath}
+\usepackage{listings}
+\usepackage{enumitem}
+\usepackage{fontawesome}
+\graphicspath{{img/}}
+
+\hypersetup{   
+	urlcolor=[RGB]{114,143,165},
+}
+
+% Define Commands
+\newcommand{\RomanNumber}[1]{\uppercase\expandafter{\romannumeral #1\relax}}
+\lstset{numbers=left, numberstyle=\tiny, stepnumber=1,firstnumber=1,breaklines=true,
+	numbersep=5pt,language=Python,
+	stringstyle=\ttfamily,
+	basicstyle=\footnotesize, 
+	showstringspaces=false
+}
+
+% Theme inclusion
+%\makeatletter
+%\def\beamer@calltheme#1#2#3{%
+%	\def\beamer@themelist{#2}
+%	\@for\beamer@themename:=\beamer@themelist\do
+%	{\usepackage[{#1}]{\beamer@themelocation/#3\beamer@themename}}}
+
+%\def\usefolder#1{
+%	\def\beamer@themelocation{#1}
+%}
+%\def\beamer@themelocation{}
+%\usefolder{Files/Theme}
+
+\usetheme{presentation}

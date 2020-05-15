@@ -1,0 +1,19 @@
+# Mac
+.DS_Store
+
+# LaTex
+*.aux
+*.bbl
+*.blg
+*.lof
+*.log
+*.lot
+*.out
+*.toc
+*.nav
+*.snm
+*.synctex.gz
+*.sty
+
+# Folders
+Papers
