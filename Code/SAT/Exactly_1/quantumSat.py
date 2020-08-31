@@ -29,7 +29,7 @@ def run_solver(input_file, b):
                           fold=300, vertical_compression='low')
 
     # diagrams
-    plot_histogram(counts)
+    plot_histogram(counts, figsize=(16, 9))
     plt.show()
 
 
