@@ -172,13 +172,18 @@ class GroverSAT(object):
 
         self.circuit.h(final_target)
 
-    def grover(self):
-        """Here I apply two iterations of: black_box + average_inversion"""
+    def grover(self, cycles):
+        """"
+        This is the actual method that builds the quantum circuit. The number of iterations is decided
+        by the designer. We tested that up to 3 iterations the algorithm enhances its performances.
+        First we initialize the quantum circuit by bringing the state to the uniform superposition,
+        then we apply the black_box_u_f() and the inversion_about_average() steps a number of times
+        that depends on the attribute cycles.
+        """
         self.__input_state()
-        self.__black_box_u_f()
-        self.__inversion_about_average()
-        self.__black_box_u_f()
-        self.__inversion_about_average()
+        for i in range(cycles):
+            self.__black_box_u_f()
+            self.__inversion_about_average()
 
     @classmethod
     def from_file(cls, file):

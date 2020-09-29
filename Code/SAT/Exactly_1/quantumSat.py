@@ -14,9 +14,9 @@ from qiskit.visualization import *
 import matplotlib.pyplot as plt
 
 
-def run_solver(input_file, b):
+def run_solver(input_file, b, cycles):
     instance = GroverSAT.from_file(input_file)
-    instance.grover()
+    instance.grover(cycles)
 
     # once I have the instance of my grover quantum circuit I measure the interested qubits for the result
     for j in range(instance.n):
@@ -35,7 +35,7 @@ def run_solver(input_file, b):
 
 def main(args):
     file = open('Input/' + args[1], 'r')
-    run_solver(file, int(args[2]))
+    run_solver(file, int(args[2]), int(args[3]))
 
 
 if __name__ == '__main__':
