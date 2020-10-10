@@ -165,7 +165,7 @@ class GroverSAT(object):
                 if i == 0:
                     self.circuit.ccx(controls[0], controls[1], self.aux[num_clauses + temp_target])
                 else:
-                    self.circuit.ccx(controls[i], self.aux[num_clauses + temp_target - 1], self
+                    self.circuit.ccx(controls[i + 1], self.aux[num_clauses + temp_target - 1], self
                                      .aux[num_clauses + temp_target])
                 temp_target -= 1
                 i -= 1
