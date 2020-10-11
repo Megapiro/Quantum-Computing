@@ -115,7 +115,7 @@ class GroverSAT(object):
             self.circuit.barrier()
 
             for literal in clause:
-                 if literal < 0:
+                if literal < 0:
                     self.circuit.x(self.f_in[-literal - 1])
 
             self.circuit.barrier()
