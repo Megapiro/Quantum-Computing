@@ -35,7 +35,7 @@ def run_solver(input_file, b, cycles, system):
 
 def main(args):
     file = open('Input/' + args[1], 'r')
-    run_solver(file, int(args[2]), int(args[3]), args[4])
+    run_solver(file, int(args[2]), int(args[3]), args[4] if len(args) == 5 else 'MELBOURNE')
 
 
 if __name__ == '__main__':
