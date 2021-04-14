@@ -9,6 +9,7 @@ Remember that Grover's algorithm applies to a function with an n-qubit input and
 """
 
 from qiskit import *
+import systems
 
 
 class GroverSAT(object):
@@ -202,10 +203,10 @@ class GroverSAT(object):
 
         return cls(m, exactly_1_k_sat_formula)
 
-    def solve(self, b):
+    def solve(self, b, system):
         if b:
             provider = IBMQ.enable_account('IBMQ_token_HERE')
-            backend = provider.get_backend('ibmq_16_melbourne')
+            backend = provider.get_backend(systems.Systems[system].value)
         else:
             backend = Aer.get_backend('qasm_simulator')
         return execute(self.circuit, backend)

@@ -14,14 +14,14 @@ from qiskit.visualization import *
 import matplotlib.pyplot as plt
 
 
-def run_solver(input_file, b, cycles):
+def run_solver(input_file, b, cycles, system):
     instance = GroverSAT.from_file(input_file)
     instance.grover(cycles)
 
     # once I have the instance of my grover quantum circuit I measure the interested qubits for the result
     for j in range(instance.n):
         instance.circuit.measure(instance.f_in[j], instance.ans[j])
-    job = instance.solve(b)
+    job = instance.solve(b, system)
     counts = job.result().get_counts('grover')
 
     # circuit is drawn in a file in the Circuits folder
@@ -35,7 +35,7 @@ def run_solver(input_file, b, cycles):
 
 def main(args):
     file = open('Input/' + args[1], 'r')
-    run_solver(file, int(args[2]), int(args[3]))
+    run_solver(file, int(args[2]), int(args[3]), args[4])
 
 
 if __name__ == '__main__':
